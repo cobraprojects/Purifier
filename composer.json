@@ -1,0 +1,54 @@
+{
+  "name": "mews/purifier",
+  "type": "package",
+  "description": "Laravel HtmlPurifier Package",
+  "keywords": ["laravel HtmlPurifier", "HtmlPurifier", "Purifier", "security", "xss"],
+  "homepage": "https://github.com/cobraprojects/purifier",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Moahmed Melouk",
+      "email": "m.melouk@gmail.com",
+      "homepage": "https://github.com/cobraprojects",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">7.2",
+    "ezyang/htmlpurifier": "4.13.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0|^9.0",
+    "mockery/mockery": "^1.3.3",
+    "graham-campbell/testbench": "^3.2|^5.5.1"
+  },
+  "suggest": {
+    "laravel/framework": "To test the Laravel bindings",
+    "laravel/lumen-framework": "To test the Lumen bindings"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cobraprojects\\Purifier\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Cobraprojects\\Tests\\Purifier\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+          "Cobraprojects\\Purifier\\PurifierServiceProvider"
+      ],
+      "aliases": {
+          "Purifier": "Cobraprojects\\Purifier\\Facades\\Purifier"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
