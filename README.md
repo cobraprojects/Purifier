@@ -1,11 +1,4 @@
-# HTMLPurifier for Laravel 5/6/7/8/9
-
-[![Build Status](https://travis-ci.org/cobraprojects/Purifier.svg?branch=master)](https://travis-ci.org/github/cobraprojects/Purifier)
-[![codecov](https://codecov.io/gh/cobraprojects/Purifier/branch/master/graph/badge.svg)](https://codecov.io/gh/cobraprojects/Purifier)
-[![Latest Stable Version](https://poser.pugx.org/mews/Purifier/v/stable.svg)](https://packagist.org/packages/mews/Purifier)
-[![Latest Unstable Version](https://poser.pugx.org/mews/Purifier/v/unstable.svg)](https://packagist.org/packages/mews/Purifier)
-[![License](https://poser.pugx.org/mews/Purifier/license.svg)](https://packagist.org/packages/mews/Purifier)
-[![Total Downloads](https://poser.pugx.org/mews/Purifier/downloads.svg)](https://packagist.org/packages/mews/Purifier)
+# HTMLPurifier for Laravel
 
 A simple [Laravel](http://www.laravel.com/) service provider for easily using [HTMLPurifier](http://htmlpurifier.org/) inside Laravel. From their website:
 
@@ -16,17 +9,19 @@ A simple [Laravel](http://www.laravel.com/) service provider for easily using [H
 ### For Laravel 5.5+
 
 Require this package with composer:
+
 ```
-composer require mews/purifier
+composer require cobraprojects/purifier
 ```
 
-The service provider will be auto-discovered. You do not need to add the provider anywhere. 
+The service provider will be auto-discovered. You do not need to add the provider anywhere.
 
 ### For Laravel 5.0 to 5.4
 
 Require this package with composer:
+
 ```
-composer require mews/purifier
+composer require cobraprojects/purifier
 ```
 
 Find the `providers` key in `config/app.php` and register the HTMLPurifier Service Provider.
@@ -51,15 +46,14 @@ Find the `aliases` key in `config/app.php` and register the Purifier alias.
 
 Check out [HTMLPurifier for Laravel 4](https://github.com/cobraprojects/Purifier/tree/master-l4)
 
-
 ## Usage
-
 
 Use these methods inside your requests or middleware, wherever you need the HTML cleaned up:
 
 ```php
 clean(Input::get('inputname'));
 ```
+
 or
 
 ```php
@@ -67,10 +61,12 @@ Purifier::clean(Input::get('inputname'));
 ```
 
 dynamic config
+
 ```php
 clean('This is my H1 title', 'titles');
 clean('This is my H1 title', array('Attr.EnableID' => true));
 ```
+
 or
 
 ```php
@@ -154,15 +150,15 @@ return [
                 ['aside',   'Block', 'Flow', 'Common'],
                 ['header',  'Block', 'Flow', 'Common'],
                 ['footer',  'Block', 'Flow', 'Common'],
-				
+
 				// Content model actually excludes several tags, not modelled here
                 ['address', 'Block', 'Flow', 'Common'],
                 ['hgroup', 'Block', 'Required: h1 | h2 | h3 | h4 | h5 | h6', 'Common'],
-				
+
 				// http://developers.whatwg.org/grouping-content.html
                 ['figure', 'Block', 'Optional: (figcaption, Flow) | (Flow, figcaption) | Flow', 'Common'],
                 ['figcaption', 'Inline', 'Flow', 'Common'],
-				
+
 				// http://developers.whatwg.org/the-video-element.html#the-video-element
                 ['video', 'Block', 'Optional: (source, Flow) | (Flow, source) | Flow', 'Common', [
                     'src' => 'URI',
@@ -185,7 +181,7 @@ return [
                 ['sup',  'Inline', 'Inline', 'Common'],
                 ['mark', 'Inline', 'Inline', 'Common'],
                 ['wbr',  'Inline', 'Empty', 'Core'],
-				
+
 				// http://developers.whatwg.org/edits.html
                 ['ins', 'Block', 'Flow', 'Common', ['cite' => 'URI', 'datetime' => 'CDATA']],
                 ['del', 'Block', 'Flow', 'Common', ['cite' => 'URI', 'datetime' => 'CDATA']],

@@ -1,8 +1,14 @@
 {
-  "name": "mews/purifier",
+  "name": "cobraprojects/purifier",
   "type": "package",
   "description": "Laravel HtmlPurifier Package",
-  "keywords": ["laravel HtmlPurifier", "HtmlPurifier", "Purifier", "security", "xss"],
+  "keywords": [
+    "laravel HtmlPurifier",
+    "HtmlPurifier",
+    "Purifier",
+    "security",
+    "xss"
+  ],
   "homepage": "https://github.com/cobraprojects/purifier",
   "license": "MIT",
   "authors": [
@@ -42,10 +48,10 @@
   "extra": {
     "laravel": {
       "providers": [
-          "Cobraprojects\\Purifier\\PurifierServiceProvider"
+        "Cobraprojects\\Purifier\\PurifierServiceProvider"
       ],
       "aliases": {
-          "Purifier": "Cobraprojects\\Purifier\\Facades\\Purifier"
+        "Purifier": "Cobraprojects\\Purifier\\Facades\\Purifier"
       }
     }
   },
